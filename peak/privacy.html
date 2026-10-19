@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<title>Peak: Sourdough Starter — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; --fg: #1d1d1f; --muted: #6e6e73; --bg: #fbfaf7; --line: #e3e0d8; --accent: #8a5a1f; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #f5f5f7; --muted: #a1a1a6; --bg: #141312; --line: #34312c; --accent: #e0a85a; } }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  nav { font-size: .95rem; margin-bottom: 2rem; }
+  nav a { margin-right: 1rem; }
+  a { color: var(--accent); }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .25rem; }
+  h2 { font-size: 1.25rem; margin: 2rem 0 .5rem; }
+  section + section { border-top: 1px solid var(--line); margin-top: 3rem; padding-top: 1rem; }
+  .muted { color: var(--muted); font-size: .95rem; }
+  ul { padding-left: 1.2rem; }
+  li { margin: .3rem 0; }
+</style>
+</head>
+<body>
+<main>
+<nav aria-label="Language"><a href="#en" hreflang="en">English</a><a href="#fr" hreflang="fr">Français</a><a href="#de" hreflang="de">Deutsch</a><a href="/peak/support">Support</a></nav>
+
+<section id="en" lang="en">
+<h1>Peak: Sourdough Starter — Privacy Policy</h1>
+<p class="muted">Last updated: October 19, 2026</p>
+
+<p>Peak has no account, no ads, no analytics and no tracking. Your starters, feedings, photos, bakes and notes are stored only on your iPhone. The one exception is the photo check, described below: when you ask for one, the photo and its feeding context are sent to Peak's server to get a verdict.</p>
+
+<h2>Who is responsible</h2>
+<p>Peak is published by Alexandre Weber-Holtzscherer, independent developer (France). Contact: <a href="mailto:contact@awhgroup.net">contact@awhgroup.net</a>.</p>
+
+<h2>Data that stays on your iPhone</h2>
+<ul>
+<li>Starters, feedings, photo checks and their photos, bakes, ratings and notes are saved in the app on your device. Peak does not sync them to any server. They are included in your own iPhone backups like other app data, and deleting the app deletes them.</li>
+<li>Writing help (suggested texts) uses Apple Intelligence on your device (Apple Foundation Models). That text never leaves your iPhone.</li>
+<li>Feeding reminders and proof timers are local notifications scheduled by iOS on your device. If you choose to export reminders to Apple Reminders, iOS asks for your permission and Peak writes them only to your Reminders app.</li>
+<li>Siri, Shortcuts, Spotlight, widgets and Live Activities are handled by iOS on your device.</li>
+</ul>
+
+<h2>The photo check (sent to Peak's server)</h2>
+<p>Only when you tap to check a photo of your starter, Peak sends over an encrypted HTTPS connection:</p>
+<ul>
+<li>the photo (a JPEG reduced to 1,200 pixels at most) and, if you took one earlier in the same feeding cycle, that previous photo;</li>
+<li>the feeding context: hours since the last feeding, feed ratio, flour, counter or fridge mode, feeding interval and temperature (never the name you gave the starter, which stays on your iPhone);</li>
+<li>the app language, your time zone and the current time, so the next step can be dated in your local time;</li>
+<li>a random installation token and whether you have Peak Pro (see “Free check counter”).</li>
+</ul>
+<p>Peak's server is a Cloudflare Worker (Cloudflare, Inc.) that forwards the photo and context to the Claude API of Anthropic (Anthropic, PBC) to produce the verdict, then returns the result to your iPhone. Peak does not store your photo or its context on any server. Anthropic processes the request as a service provider: under its policy for API customers, it deletes inputs and outputs within 30 days, unless a longer retention is required by law or to enforce its usage policy (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Anthropic data retention</a>), and it does not train its models on this content (<a href="https://www.anthropic.com/legal/commercial-terms">Anthropic commercial terms</a>).</p>
+<p>If you never use the photo check, nothing is sent.</p>
+
+<h2>Free check counter</h2>
+<p>Three photo checks are free. To count them without an account, Peak creates a random identifier on your iPhone at the first check, keeps it in the device Keychain (never synced to other devices) and sends it with a signature. The server stores only this random identifier and the number of free checks used, in Cloudflare's key-value storage, with no expiry date. It is not linked to your name, email, Apple Account or any other identifier, and it is not used for anything else.</p>
+
+<h2>Technical logs</h2>
+<p>For each check request, the server writes one technical log line: the verdict state, the response time, the HTTP status, and, if the request failed or was unusual, an error code and a technical detail (for example the provider's error type, a refusal category or the model that answered), plus the number of tokens the model read and wrote. The line contains no identifier: not the random identifier, not your IP address, and never the photo, the context or the text of the verdict. Cloudflare keeps these lines for at most 7 days (<a href="https://developers.cloudflare.com/workers/observability/logs/workers-logs/">Cloudflare Workers Logs</a>). Cloudflare's request logs, which would include your IP address and request headers, are turned off for Peak's server. Like any web service, Cloudflare processes your IP address to deliver the request; Peak does not store it.</p>
+
+<h2>Purchases</h2>
+<p>Peak Pro is sold by Apple through the App Store. Peak never sees your payment details or your Apple Account; it only reads, on your device, whether Pro is active.</p>
+
+<h2>What Peak does not do</h2>
+<ul>
+<li>No account and no sign-in.</li>
+<li>No advertising, no analytics, no third-party SDK, no tracking across apps or websites.</li>
+<li>No sale or sharing of data for advertising.</li>
+</ul>
+
+<h2>Children</h2>
+<p>Peak is rated 4+ and is a baking tool. It does not knowingly collect personal information from children.</p>
+
+<h2>Your rights</h2>
+<p>Deleting the app deletes everything Peak stored in the app on your iPhone, with two exceptions. First, the random identifier of the free check counter: iOS can keep it in the device Keychain after the app is deleted (that is why reinstalling does not reset the free checks); erasing the iPhone (Settings › General › Transfer or Reset iPhone › Erase All Content and Settings) removes it. Second, the counter on the server, which stays in Cloudflare's storage. Neither is linked to you, and since the identifier is never shown in the app or written in the logs, we cannot tell which counter is yours and so cannot erase a particular counter on request. Reminders you exported to Apple Reminders stay in the Reminders app, where you can delete them. Because Peak has no accounts and its server keeps no data that identifies you, we generally cannot link a request to a person, but write to <a href="mailto:contact@awhgroup.net">contact@awhgroup.net</a> for any question or request (access, deletion, objection). If you are in the EU, you may also complain to your data protection authority (in France, the CNIL).</p>
+
+<h2>Changes</h2>
+<p>If the way Peak handles data changes, this page and its date will be updated before the new version is released.</p>
+</section>
+
+<section id="fr" lang="fr">
+<h1>Peak : levain naturel — Politique de confidentialité</h1>
+<p class="muted">Dernière mise à jour : 19 octobre 2026</p>
+
+<p>Peak n'a ni compte, ni publicité, ni mesure d'audience, ni suivi. Vos levains, nourrissages, photos, fournées et notes sont enregistrés uniquement sur votre iPhone. Seule exception, le check photo décrit ci-dessous : quand vous le demandez, la photo et son contexte de nourrissage sont envoyés au serveur de Peak pour obtenir un verdict.</p>
+
+<h2>Responsable</h2>
+<p>Peak est publiée par Alexandre Weber-Holtzscherer, développeur indépendant (France). Contact : <a href="mailto:contact@awhgroup.net">contact@awhgroup.net</a>.</p>
+
+<h2>Ce qui reste sur votre iPhone</h2>
+<ul>
+<li>Levains, nourrissages, checks photo et leurs photos, fournées, notes et commentaires sont enregistrés dans l'app, sur votre appareil. Peak ne les synchronise avec aucun serveur. Ils sont inclus dans vos propres sauvegardes d'iPhone comme les données des autres apps, et supprimer l'app les supprime.</li>
+<li>Les aides à la rédaction (textes suggérés) utilisent Apple Intelligence sur votre appareil (Apple Foundation Models). Ce texte ne quitte jamais votre iPhone.</li>
+<li>Les rappels de nourrissage et les minuteurs de pousse sont des notifications locales programmées par iOS sur votre appareil. Si vous choisissez d'exporter les rappels vers l'app Rappels d'Apple, iOS vous demande l'autorisation et Peak les écrit seulement dans votre app Rappels.</li>
+<li>Siri, Raccourcis, Spotlight, les widgets et les Activités en direct sont gérés par iOS sur votre appareil.</li>
+</ul>
+
+<h2>Le check photo (envoyé au serveur de Peak)</h2>
+<p>Uniquement quand vous lancez le check d'une photo de votre levain, Peak envoie par une connexion HTTPS chiffrée :</p>
+<ul>
+<li>la photo (un JPEG réduit à 1 200 pixels au plus) et, si vous en avez pris une plus tôt dans le même cycle de nourrissage, cette photo précédente ;</li>
+<li>le contexte du nourrissage : heures depuis le dernier nourrissage, ratio, farine, mode ambiant ou frigo, rythme de nourrissage et température (jamais le nom donné au levain, qui reste sur votre iPhone) ;</li>
+<li>la langue de l'app, votre fuseau horaire et l'heure actuelle, pour dater la prochaine action dans votre heure locale ;</li>
+<li>un jeton d'installation aléatoire et l'indication que vous avez Peak Pro ou non (voir « Compteur des checks gratuits »).</li>
+</ul>
+<p>Le serveur de Peak est un Cloudflare Worker (Cloudflare, Inc.) qui transmet la photo et le contexte à l'API Claude d'Anthropic (Anthropic, PBC) pour produire le verdict, puis renvoie le résultat à votre iPhone. Peak ne conserve ni votre photo ni son contexte sur aucun serveur. Anthropic traite la requête en tant que prestataire : selon sa politique pour les clients de l'API, elle supprime les entrées et sorties sous 30 jours, sauf conservation plus longue exigée par la loi ou pour faire respecter sa politique d'utilisation (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">conservation des données Anthropic</a>), et n'entraîne pas ses modèles sur ce contenu (<a href="https://www.anthropic.com/legal/commercial-terms">conditions commerciales d'Anthropic</a>).</p>
+<p>Si vous n'utilisez jamais le check photo, rien n'est envoyé.</p>
+
+<h2>Compteur des checks gratuits</h2>
+<p>Trois checks photo sont gratuits. Pour les compter sans compte, Peak crée au premier check un identifiant aléatoire sur votre iPhone, le garde dans le trousseau de l'appareil (jamais synchronisé avec d'autres appareils) et l'envoie avec une signature. Le serveur conserve seulement cet identifiant aléatoire et le nombre de checks gratuits utilisés, dans le stockage clé-valeur de Cloudflare, sans date d'expiration. Il n'est lié ni à votre nom, ni à votre e-mail, ni à votre compte Apple, ni à aucun autre identifiant, et ne sert à rien d'autre.</p>
+
+<h2>Journaux techniques</h2>
+<p>Pour chaque requête de check, le serveur écrit une ligne de journal technique : l'état du verdict, le temps de réponse, le statut HTTP et, si la requête a échoué ou sort de l'ordinaire, un code d'erreur et un détail technique (par exemple le type d'erreur du prestataire, une catégorie de refus ou le modèle qui a répondu), ainsi que le nombre de jetons lus et écrits par le modèle. Cette ligne ne contient aucun identifiant : ni l'identifiant aléatoire, ni votre adresse IP, et jamais la photo, le contexte ni le texte du verdict. Cloudflare conserve ces lignes 7 jours au plus (<a href="https://developers.cloudflare.com/workers/observability/logs/workers-logs/">Cloudflare Workers Logs</a>). Les journaux de requêtes de Cloudflare, qui contiendraient votre adresse IP et les en-têtes de la requête, sont désactivés pour le serveur de Peak. Comme tout service web, Cloudflare traite votre adresse IP pour acheminer la requête ; Peak ne la conserve pas.</p>
+
+<h2>Achats</h2>
+<p>Peak Pro est vendu par Apple sur l'App Store. Peak ne voit jamais vos moyens de paiement ni votre compte Apple ; l'app lit seulement, sur votre appareil, si Pro est actif.</p>
+
+<h2>Ce que Peak ne fait pas</h2>
+<ul>
+<li>Aucun compte, aucune connexion.</li>
+<li>Aucune publicité, aucune mesure d'audience, aucun SDK tiers, aucun suivi entre apps ou sites web.</li>
+<li>Aucune vente ni partage de données à des fins publicitaires.</li>
+</ul>
+
+<h2>Enfants</h2>
+<p>Peak est classée 4+ et sert à faire du pain. Elle ne collecte pas sciemment de données personnelles d'enfants.</p>
+
+<h2>Vos droits</h2>
+<p>Supprimer l'app efface tout ce que Peak a enregistré dans l'app sur votre iPhone, à deux exceptions près. D'abord l'identifiant aléatoire du compteur de checks gratuits : iOS peut le garder dans le trousseau de l'appareil après la suppression de l'app (c'est pourquoi réinstaller ne remet pas à zéro les checks gratuits) ; effacer l'iPhone (Réglages › Général › Transférer ou réinitialiser l'iPhone › Effacer contenu et réglages) le supprime. Ensuite le compteur sur le serveur, qui reste dans le stockage de Cloudflare. Ni l'un ni l'autre n'est lié à vous, et comme l'identifiant n'est jamais affiché dans l'app ni écrit dans les journaux, nous ne pouvons pas savoir quel compteur est le vôtre, donc pas effacer un compteur précis sur demande. Les rappels exportés vers l'app Rappels d'Apple restent dans Rappels, où vous pouvez les supprimer. Comme Peak n'a pas de compte et que son serveur ne garde aucune donnée qui vous identifie, nous ne pouvons en général pas relier une demande à une personne ; écrivez néanmoins à <a href="mailto:contact@awhgroup.net">contact@awhgroup.net</a> pour toute question ou demande (accès, effacement, opposition). Vous pouvez aussi adresser une réclamation à la CNIL.</p>
+
+<h2>Modifications</h2>
+<p>Si la façon dont Peak traite les données change, cette page et sa date sont mises à jour avant la sortie de la nouvelle version.</p>
+</section>
+
+<section id="de" lang="de">
+<h1>Peak: Sauerteig-Anstellgut — Datenschutzerklärung</h1>
+<p class="muted">Zuletzt aktualisiert: 19. Oktober 2026</p>
+
+<p>Peak hat kein Konto, keine Werbung, keine Analyse-Tools und kein Tracking. Dein Anstellgut, deine Fütterungen, Fotos, Backtagebuch-Einträge und Notizen werden nur auf deinem iPhone gespeichert. Einzige Ausnahme ist der unten beschriebene Foto-Check: Wenn du ihn anforderst, werden das Foto und sein Fütterungskontext an den Server von Peak gesendet, um eine Einschätzung zu erhalten.</p>
+
+<h2>Verantwortlicher</h2>
+<p>Peak wird von Alexandre Weber-Holtzscherer, unabhängiger Entwickler (Frankreich), veröffentlicht. Kontakt: <a href="mailto:contact@awhgroup.net">contact@awhgroup.net</a>.</p>
+
+<h2>Was auf deinem iPhone bleibt</h2>
+<ul>
+<li>Anstellgut, Fütterungen, Foto-Checks und ihre Fotos, Backtagebuch, Bewertungen und Notizen werden in der App auf deinem Gerät gespeichert. Peak synchronisiert sie mit keinem Server. Sie sind wie andere App-Daten in deinen eigenen iPhone-Backups enthalten, und das Löschen der App löscht sie.</li>
+<li>Die Schreibhilfe (Textvorschläge) nutzt Apple Intelligence auf deinem Gerät (Apple Foundation Models). Dieser Text verlässt dein iPhone nie.</li>
+<li>Fütterungs-Erinnerungen und Gare-Timer sind lokale Mitteilungen, die iOS auf deinem Gerät plant. Wenn du Erinnerungen in die Erinnerungen-App von Apple exportierst, fragt iOS nach deiner Erlaubnis, und Peak schreibt sie nur in deine Erinnerungen-App.</li>
+<li>Siri, Kurzbefehle, Spotlight, Widgets und Live-Aktivitäten werden von iOS auf deinem Gerät verarbeitet.</li>
+</ul>
+
+<h2>Der Foto-Check (an den Server von Peak gesendet)</h2>
+<p>Nur wenn du ein Foto deines Anstellguts prüfen lässt, sendet Peak über eine verschlüsselte HTTPS-Verbindung:</p>
+<ul>
+<li>das Foto (ein auf höchstens 1.200 Pixel verkleinertes JPEG) und, falls du im selben Fütterungszyklus schon eines aufgenommen hast, dieses vorherige Foto;</li>
+<li>den Fütterungskontext: Stunden seit der letzten Fütterung, Verhältnis, Mehl, Raumtemperatur- oder Kühlschrank-Modus, Fütterungsrhythmus und Temperatur (nie den Namen deines Anstellguts, der auf deinem iPhone bleibt);</li>
+<li>die App-Sprache, deine Zeitzone und die aktuelle Uhrzeit, damit der nächste Schritt in deiner Ortszeit datiert wird;</li>
+<li>ein zufälliges Installations-Token und die Angabe, ob du Peak Pro hast (siehe „Zähler der Gratis-Checks“).</li>
+</ul>
+<p>Der Server von Peak ist ein Cloudflare Worker (Cloudflare, Inc.), der Foto und Kontext an die Claude-API von Anthropic (Anthropic, PBC) weiterleitet, um die Einschätzung zu erstellen, und das Ergebnis an dein iPhone zurückgibt. Peak speichert weder dein Foto noch seinen Kontext auf einem Server. Anthropic verarbeitet die Anfrage als Dienstleister: Gemäß seiner Richtlinie für API-Kunden löscht Anthropic Ein- und Ausgaben innerhalb von 30 Tagen, sofern keine längere Aufbewahrung gesetzlich oder zur Durchsetzung seiner Nutzungsrichtlinie erforderlich ist (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Datenaufbewahrung bei Anthropic</a>), und trainiert seine Modelle nicht mit diesen Inhalten (<a href="https://www.anthropic.com/legal/commercial-terms">kommerzielle Bedingungen von Anthropic</a>).</p>
+<p>Wenn du den Foto-Check nie nutzt, wird nichts gesendet.</p>
+
+<h2>Zähler der Gratis-Checks</h2>
+<p>Drei Foto-Checks sind gratis. Um sie ohne Konto zu zählen, erstellt Peak beim ersten Check eine zufällige Kennung auf deinem iPhone, bewahrt sie im Schlüsselbund des Geräts auf (nie mit anderen Geräten synchronisiert) und sendet sie mit einer Signatur. Der Server speichert nur diese zufällige Kennung und die Zahl der genutzten Gratis-Checks im Key-Value-Speicher von Cloudflare, ohne Ablaufdatum. Sie ist weder mit deinem Namen, deiner E-Mail-Adresse, deinem Apple Account noch mit einer anderen Kennung verknüpft und dient keinem anderen Zweck.</p>
+
+<h2>Technische Protokolle</h2>
+<p>Für jede Check-Anfrage schreibt der Server eine technische Protokollzeile: den ermittelten Zustand, die Antwortzeit, den HTTP-Status und, falls die Anfrage fehlschlug oder ungewöhnlich war, einen Fehlercode und ein technisches Detail (zum Beispiel den Fehlertyp des Anbieters, eine Ablehnungskategorie oder das Modell, das geantwortet hat), dazu die Zahl der vom Modell gelesenen und geschriebenen Tokens. Die Zeile enthält keine Kennung: weder die zufällige Kennung noch deine IP-Adresse, und nie das Foto, den Kontext oder den Text der Einschätzung. Cloudflare bewahrt diese Zeilen höchstens 7 Tage auf (<a href="https://developers.cloudflare.com/workers/observability/logs/workers-logs/">Cloudflare Workers Logs</a>). Die Anfrageprotokolle von Cloudflare, die deine IP-Adresse und die Header der Anfrage enthielten, sind für den Server von Peak abgeschaltet. Wie jeder Webdienst verarbeitet Cloudflare deine IP-Adresse, um die Anfrage zuzustellen; Peak speichert sie nicht.</p>
+
+<h2>Käufe</h2>
+<p>Peak Pro wird von Apple über den App Store verkauft. Peak sieht nie deine Zahlungsdaten oder deinen Apple Account; die App liest auf deinem Gerät nur, ob Pro aktiv ist.</p>
+
+<h2>Was Peak nicht tut</h2>
+<ul>
+<li>Kein Konto, keine Anmeldung.</li>
+<li>Keine Werbung, keine Analyse-Tools, kein Drittanbieter-SDK, kein Tracking über Apps oder Websites hinweg.</li>
+<li>Kein Verkauf und keine Weitergabe von Daten zu Werbezwecken.</li>
+</ul>
+
+<h2>Kinder</h2>
+<p>Peak ist ab 4 Jahren freigegeben und ein Werkzeug zum Brotbacken. Die App erhebt wissentlich keine personenbezogenen Daten von Kindern.</p>
+
+<h2>Deine Rechte</h2>
+<p>Das Löschen der App entfernt alles, was Peak in der App auf deinem iPhone gespeichert hat, mit zwei Ausnahmen. Erstens die zufällige Kennung des Gratis-Check-Zählers: iOS kann sie nach dem Löschen der App im Schlüsselbund des Geräts behalten (deshalb setzt eine Neuinstallation die Gratis-Checks nicht zurück); das Löschen des iPhone (Einstellungen › Allgemein › iPhone übertragen/zurücksetzen › Alle Inhalte & Einstellungen löschen) entfernt sie. Zweitens der Zähler auf dem Server, der im Speicher von Cloudflare bleibt. Beides ist nicht mit dir verknüpft, und da die Kennung weder in der App angezeigt noch in den Protokollen gespeichert wird, können wir nicht erkennen, welcher Zähler deiner ist, und daher keinen bestimmten Zähler auf Anfrage löschen. Erinnerungen, die du in die Erinnerungen-App von Apple exportiert hast, bleiben dort, und du kannst sie dort löschen. Da Peak keine Konten hat und sein Server keine Daten speichert, die dich identifizieren, können wir eine Anfrage in der Regel keiner Person zuordnen; schreib uns trotzdem an <a href="mailto:contact@awhgroup.net">contact@awhgroup.net</a> bei Fragen oder Anliegen (Auskunft, Löschung, Widerspruch). Du kannst dich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren.</p>
+
+<h2>Änderungen</h2>
+<p>Ändert sich der Umgang von Peak mit Daten, werden diese Seite und ihr Datum vor der Veröffentlichung der neuen Version aktualisiert.</p>
+</section>
+</main>
+</body>
+</html>
